@@ -141,9 +141,9 @@ namespace RespecModBarley
                 AttribSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("barley-attrib-selection", feature =>
                 {
                     feature.Groups = Array.Empty<FeatureGroup>();
-                    feature.m_DisplayName = Helpers.CreateString("barley-attrib-selection.name", "Attribute Selection");
-                    feature.m_Description = Helpers.CreateString("barley-attrib-selection.description", "Attribute Selection");
-                    feature.m_DescriptionShort = Helpers.CreateString("barley-attrib-selection.description-short", "Attribute Selection");
+                    feature.m_DisplayName = Helpers.CreateString("barley-attrib-selection.name", "属性选择");
+                    feature.m_Description = Helpers.CreateString("barley-attrib-selection.description", "属性选择");
+                    feature.m_DescriptionShort = Helpers.CreateString("barley-attrib-selection.description-short", "属性选择");
                     feature.m_Features = AttribFeatureRefs;
                     feature.m_AllFeatures = AttribFeatureRefs;
                     feature.m_Icon = AssetLoader.LoadInternal("icons", "attrib_selection.png", new Vector2Int(192, 192));
