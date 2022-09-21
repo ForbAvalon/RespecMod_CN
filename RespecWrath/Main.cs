@@ -682,7 +682,7 @@ namespace RespecModBarley
                     GUILayout.BeginHorizontal();
                     if (selected.IsStoryCompanionLocal() && !selected.IsMainCharacter)
                     {
-                        settings.OriginalStats = GUILayout.Toggle(settings.OriginalStats, "Original Stats", GUILayout.ExpandWidth(false));
+                        settings.OriginalStats = GUILayout.Toggle(settings.OriginalStats, "原始数据", GUILayout.ExpandWidth(false));
                     }
                     else
                     {
@@ -718,11 +718,11 @@ namespace RespecModBarley
 									GUILayout.ExpandWidth(false)
 					});
 				}*/
-                GUILayout.Label(("  Extra points +" + (settings.PointsCount.ToString())), new GUILayoutOption[] { GUILayout.ExpandWidth(false) });
+                GUILayout.Label(("  额外属性点 +" + (settings.PointsCount.ToString())), new GUILayoutOption[] { GUILayout.ExpandWidth(false) });
                 GUILayout.EndHorizontal();
                 GUILayout.Space(10f);
                 GUILayout.BeginHorizontal();
-                if (/*selected.Descriptor.Progression.CharacterLevel != 0 && */GUILayout.Button(string.Format("Submit ({0}g)", Main.respecCost), UnityModManager.UI.button, new GUILayoutOption[]
+                if (/*selected.Descriptor.Progression.CharacterLevel != 0 && */GUILayout.Button(string.Format("重训 ({0}g)", Main.respecCost), UnityModManager.UI.button, new GUILayoutOption[]
                 {
                             GUILayout.Width(250f)
                 }))
@@ -783,7 +783,7 @@ namespace RespecModBarley
 
                 GUILayout.Space(5f);
                 //GUILayout.BeginHorizontal();
-                if (selected.Descriptor.Progression.CharacterLevel != 0 && GUILayout.Button(string.Format("Mythic Only ({0}g)", Main.respecCost * 0.25), UnityModManager.UI.button, new GUILayoutOption[]
+                if (selected.Descriptor.Progression.CharacterLevel != 0 && GUILayout.Button(string.Format("仅神话等级 ({0}g)", Main.respecCost * 0.25), UnityModManager.UI.button, new GUILayoutOption[]
                 {
                     GUILayout.Width(250f)
                 }))
@@ -825,7 +825,7 @@ namespace RespecModBarley
                 GUILayout.EndHorizontal();
                 GUILayout.Space(10f);
                 GUILayout.BeginHorizontal();
-                if (selected.Descriptor.Progression.CharacterLevel > 1 && GUILayout.Button(string.Format("-1 Level"), UnityModManager.UI.button, new GUILayoutOption[]
+                if (selected.Descriptor.Progression.CharacterLevel > 1 && GUILayout.Button(string.Format("-1 角色等级"), UnityModManager.UI.button, new GUILayoutOption[]
                 {
                     GUILayout.Width(250f)
                 }))
@@ -833,7 +833,7 @@ namespace RespecModBarley
                     ArbitraryLevelRemoval.RemoveMythicLevel(selected, selected.Progression);
                 }
                 GUILayout.Space(5f);
-                if (selected.Descriptor.Progression.CharacterLevel > 1 && GUILayout.Button(string.Format("-1 Mythic Level"), UnityModManager.UI.button, new GUILayoutOption[]
+                if (selected.Descriptor.Progression.CharacterLevel > 1 && GUILayout.Button(string.Format("-1 神话等级"), UnityModManager.UI.button, new GUILayoutOption[]
                 {
                     GUILayout.Width(250f)
                 }))
@@ -845,14 +845,14 @@ namespace RespecModBarley
                 GUILayout.EndHorizontal();
                 GUILayout.BeginHorizontal();
                 GUILayout.BeginVertical();
-                settings.FreeRespec = GUILayout.Toggle(settings.FreeRespec, "Free Respec", GUILayout.ExpandWidth(false));
-                settings.KeepSkillPoints = GUILayout.Toggle(settings.KeepSkillPoints, "Retain Skillpoint Distribution when leveling down", GUILayout.ExpandWidth(false));
+                settings.FreeRespec = GUILayout.Toggle(settings.FreeRespec, "免费重训", GUILayout.ExpandWidth(false));
+                settings.KeepSkillPoints = GUILayout.Toggle(settings.KeepSkillPoints, "保留技能点分配", GUILayout.ExpandWidth(false));
                 if (selected.IsStoryCompanionLocal() && !selected.IsMC())
                 {
                     {
                         //GUILayout.BeginVertical();
                         settings.FullRespecStoryCompanion = GUILayout.Toggle(settings.FullRespecStoryCompanion,
-                            "Respec as Mercenary", GUILayout.ExpandWidth(false));
+                            "重训为雇佣兵", GUILayout.ExpandWidth(false));
                         if (settings.FullRespecStoryCompanion)
                         {
                             settings.BackgroundDeity = true;
@@ -873,32 +873,32 @@ namespace RespecModBarley
                 if (selected.IsMC())
                 {
                     //GUILayout.BeginVertical();
-                    settings.PreserveVoice = GUILayout.Toggle(settings.PreserveVoice, "Retain Voice", GUILayout.ExpandWidth(false));
-                    settings.PreserveMCAlignment = GUILayout.Toggle(settings.PreserveMCAlignment, "Retain Alignment", GUILayout.ExpandWidth(false));
-                    settings.PreserveMCBirthday = GUILayout.Toggle(settings.PreserveMCBirthday, "Retain Birthday", GUILayout.ExpandWidth(false));
-                    settings.PreserveMCName = GUILayout.Toggle(settings.PreserveMCName, "Retain Name", GUILayout.ExpandWidth(false));
+                    settings.PreserveVoice = GUILayout.Toggle(settings.PreserveVoice, "保留声音", GUILayout.ExpandWidth(false));
+                    settings.PreserveMCAlignment = GUILayout.Toggle(settings.PreserveMCAlignment, "保留阵营", GUILayout.ExpandWidth(false));
+                    settings.PreserveMCBirthday = GUILayout.Toggle(settings.PreserveMCBirthday, "保留生日", GUILayout.ExpandWidth(false));
+                    settings.PreserveMCName = GUILayout.Toggle(settings.PreserveMCName, "保留名字", GUILayout.ExpandWidth(false));
                     //settings.PreserveMCRace = settings.PreserveMCAlignment;
-                    settings.PreservePortrait = GUILayout.Toggle(settings.PreservePortrait, "Retain Portrait", GUILayout.ExpandWidth(false));
+                    settings.PreservePortrait = GUILayout.Toggle(settings.PreservePortrait, "保留头像", GUILayout.ExpandWidth(false));
                     //GUILayout.EndVertical();
                 }
                 if (selected.IsStoryCompanionLocal() && !settings.FullRespecStoryCompanion)
                 {
                     //GUILayout.BeginVertical();
                     {
-                        settings.BackgroundDeity = GUILayout.Toggle(settings.BackgroundDeity, "Choose Background/Deity", GUILayout.ExpandWidth(false));
+                        settings.BackgroundDeity = GUILayout.Toggle(settings.BackgroundDeity, "重新选择背景/信仰", GUILayout.ExpandWidth(false));
                     }
                     //GUILayout.EndVertical();
                     //GUILayout.BeginVertical();
                     {
-                        settings.OriginalLevel = GUILayout.Toggle(settings.OriginalLevel, "Respec From Recruit Level", GUILayout.ExpandWidth(false));
+                        settings.OriginalLevel = GUILayout.Toggle(settings.OriginalLevel, "从入队等级重训", GUILayout.ExpandWidth(false));
                     }
                     //GUILayout.EndVertical();
                 }
                 else if ((selected.IsStoryCompanionLocal()) && settings.FullRespecStoryCompanion)
                 {
                     settings.BackgroundDeity = true;
-                    settings.PreserveVoice = GUILayout.Toggle(settings.PreserveVoice, "Retain Voice", GUILayout.ExpandWidth(false));
-                    settings.PreservePortrait = GUILayout.Toggle(settings.PreservePortrait, "Retain Portrait", GUILayout.ExpandWidth(false));
+                    settings.PreserveVoice = GUILayout.Toggle(settings.PreserveVoice, "保留声音", GUILayout.ExpandWidth(false));
+                    settings.PreservePortrait = GUILayout.Toggle(settings.PreservePortrait, "保留头像", GUILayout.ExpandWidth(false));
                 }
                 else if (!settings.FullRespecStoryCompanion)
                 {
@@ -924,8 +924,8 @@ namespace RespecModBarley
                 GUILayout.EndHorizontal();
                 GUILayout.Space(10f);
                 GUILayout.BeginHorizontal();
-                OldCost = GUILayout.Toggle(OldCost, "Fixed/Scaling Cost", GUILayout.ExpandWidth(false));
-                settings.AttributeInClassPage = GUILayout.Toggle(settings.AttributeInClassPage, "Attribute Selection icons on class page", GUILayout.ExpandWidth(false));
+                OldCost = GUILayout.Toggle(OldCost, "固定重训费用", GUILayout.ExpandWidth(false));
+                settings.AttributeInClassPage = GUILayout.Toggle(settings.AttributeInClassPage, "在角色界面显示属性选择", GUILayout.ExpandWidth(false));
                 GUILayout.EndHorizontal();
                 if (settings.FreeRespec == true && !forcecost)
                 {
