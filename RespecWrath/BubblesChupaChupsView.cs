@@ -98,12 +98,12 @@ namespace RespecModBarley
         private static BlueprintFeatureReference[] AttribFeatureRefs;
 
         private static string[] AttribNames = {
-            "strength",
-            "dexterity",
-            "constitution",
-            "intelligence",
-            "wisdom",
-            "charisma",
+            "力量",
+            "敏捷",
+            "体质",
+            "智力",
+            "感知",
+            "魅力",
         };
 
         private static string[] AttributeEnhancementBuffs = {
